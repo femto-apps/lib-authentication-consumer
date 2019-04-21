@@ -47,9 +47,16 @@ module.exports = function(options) {
 
   router.get('/login_callback', (req, res) => {
     const { token, to } = req.query
-    //console.log(decodeURIComponent(to))
+    console.log("Login callback")
     req.session.token = token
-    res.redirect('/')
+    if (options.redirect == true) {
+      console.log(`Redirecting to ${decodeURIComponent(to)}`)
+      res.redirect(to)
+    }
+    else {
+      console.log('Redirecting to the home page')
+      res.redirect('/')
+    }
   })
 
   return router
