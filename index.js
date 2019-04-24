@@ -7,6 +7,7 @@ module.exports = function(options) {
   //   tokenService: { endpoint },
   //   authenticationProvider: { endpoint, consumerId },
   //   authenticationConsumer: { endpoint }
+  //   redirect: <boolean>
   // }
 
   const router = express.Router()
@@ -47,14 +48,14 @@ module.exports = function(options) {
 
   router.get('/login_callback', (req, res) => {
     const { token, to } = req.query
-    console.log("Login callback")
+    //console.log("Login callback")
     req.session.token = token
     if (options.redirect == true) {
-      console.log(`Redirecting to ${decodeURIComponent(to)}`)
-      res.redirect(to)
+      //console.log(`Redirecting to ${decodeURIComponent(to)}`)
+      res.redirect(decodeURIComponent(to)
     }
     else {
-      console.log('Redirecting to the home page')
+      //console.log('Redirecting to the home page')
       res.redirect('/')
     }
   })
