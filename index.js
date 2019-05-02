@@ -52,7 +52,7 @@ module.exports = function(options) {
     req.session.token = token
     if (options.redirect == true) {
       //console.log(`Redirecting to ${decodeURIComponent(to)}`)
-      res.redirect(decodeURIComponent(to)
+      res.redirect(decodeURIComponent(to))
     }
     else {
       //console.log('Redirecting to the home page')
