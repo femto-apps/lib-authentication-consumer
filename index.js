@@ -42,7 +42,14 @@ module.exports = function(options) {
   })
 
   router.use((req, res, next) => {
-    req.user = req.session.user
+    if (req.session && req.session.user) {
+      req.users = req.session.user.users
+    }
+
+    if (req.users) {
+      req.user = req.users[0]
+    }
+
     next()
   })
 

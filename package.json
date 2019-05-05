@@ -1,6 +1,6 @@
 {
   "name": "@femto-apps/authentication-consumer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Library to ease the shift to becoming an authentication consumer",
   "main": "index.js",
   "dependencies": {
@@ -16,7 +16,7 @@
     "url": "git+https://github.com/femto-apps/lib-authentication-consumer.git"
   },
   "keywords": [],
-  "author": "[Popey456963, aappleton8",
+  "author": "Popey456963, aappleton8",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/femto-apps/lib-authentication-consumer/issues"
