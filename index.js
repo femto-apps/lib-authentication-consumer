@@ -24,18 +24,18 @@ module.exports = function(options) {
     res.locals.location = { url: req.protocol + '://' + req.get('host') + req.originalUrl }
     if (req.session.token) {
       fetch(`${options.tokenService.endpoint}?token=${req.session.token}`)
-      .then(resp => resp.json())
-      .then(resp => {
-        if ('err' in resp) {
-          if (resp.err === 'Token not found') {
-            req.session.token = undefined
-            req.session.user = undefined
-            return next()
+        .then(resp => resp.json())
+        .then(resp => {
+          if ('err' in resp) {
+            if (resp.err === 'Token not found') {
+              req.session.token = undefined
+              req.session.user = undefined
+              return next()
+            }
           }
-        }
-        req.session.user = resp
-        next()
-      })
+          req.session.user = resp
+          next()
+        })
     } else {
       next()
     }
